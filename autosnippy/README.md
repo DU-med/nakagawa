@@ -1,0 +1,50 @@
+# autosnippy チュートリアル
+
+[autosnippy](https://github.com/pedroscampoy/autosnippy)
+[Microevolution, reinfection and highly complex genomic diversity in patients with sequential isolates of Mycobacterium abscessus](https://www.nature.com/articles/s41467-024-46552-w)
+
+## 内容
+
+### 1. リポジトリのクローン
+```
+git clone https://github.com/pedroscampoy/autosnippy.git
+```
+
+### autosnippy.ymlファイルからperl-xml-parserを削除
+```
+sed -i '/perl-xml-parser/d' autosnippy.yml
+```
+
+### autosnippy.ymlから環境の構築
+```
+mamba env create -f autosnippy.yml
+```
+
+### autosnippyのアクティベート
+```
+mamba activate autosnippy
+```
+
+
+
+
+
+# インストール
+autosnippy.ymlからperl-xml-paraserを削除
+
+# 参照配列
+参照配列はgunzipを行う
+
+# snpEff
+参照配列からsnpEffのデータベースをビルド
+
+# コマンド
+python autosnippy.py -i fastq -r ref/GCF_000069185.1_ASM6918v1_genomic.fna  -T 30 -o output --mash_database refseq.genomes.k21s1000.msh --snpeff_database m_mas
+
+# オプション
+-i: fastqディレクトリにすべてのfastqファイルを保存
+-r: 参照配列を保存
+-T: スレッドを指定
+-o: 結果を保存するディレクトリ
+--mash_database :wget https://gembox.cbcb.umd.edu/mash/refseq.genomes.k21s1000.mshで取得したファイルを指定
+--snpeff_database :snpEffでビルドしたデータベースを指定
