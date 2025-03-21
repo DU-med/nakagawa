@@ -3,7 +3,7 @@
 GitHub : [autosnippy](https://github.com/pedroscampoy/autosnippy)  
 論文 : [Microevolution, reinfection and highly complex genomic diversity in patients with sequential isolates of Mycobacterium abscessus](https://www.nature.com/articles/s41467-024-46552-w)
 
-## 🖥️解析手順
+## 🖥️ 解析手順
 
 ### リポジトリのクローン
 ```
