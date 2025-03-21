@@ -31,11 +31,6 @@ mamba activate autosnippy
 mamba install bioconda::entrez-direct -y
 ```
 
-### autosnippyのアクティベート
-```
-mamba activate autosnippy
-```
-
 ### 参照データ保存ディレクトリの作成
 ```
 mkdir -p data/ref
