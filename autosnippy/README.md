@@ -22,9 +22,13 @@ sed -i '/perl-xml-parser/d' autosnippy.yml
 
 ### autosnippy.ymlから環境の構築
 ```
-mamba env create -f autosnippy.yml
+mamba env create -f autosnippy.yml -y
+```
 
-mamba install bioconda::entrez-direct
+### 構築した仮想環境のアクティベートおよび追加パッケージのインストール
+```
+mamba activate autosnippy
+mamba install bioconda::entrez-direct -y
 ```
 
 ### autosnippyのアクティベート
