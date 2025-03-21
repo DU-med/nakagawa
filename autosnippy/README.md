@@ -46,6 +46,7 @@ NC_018150.2 : [Mycobacteroides abscessus subsp. massiliense str. GO 06, complete
 ```
 # M. abscessのゲノムfastaファイルのダウンロード
 esearch -db nuccore -query "CU458896.1" | efetch -format fasta > data/ref/CU458896.1.fasta
+
 # M. massilienseのゲノム(NC_018150.2)fastaファイルのダウンロード
 esearch -db nuccore -query "NC_018150.2" | efetch -format fasta > data/ref/NC_018150.2.fasta
 ```
@@ -53,6 +54,7 @@ esearch -db nuccore -query "NC_018150.2" | efetch -format fasta > data/ref/NC_01
 ```
 # M. abscessのgbkファイルのダウンロード
 esearch -db nucleotide -query "CU458896.1" | efetch -format gbwithparts > data/m_abs/genes.gbk
+
 # M. massilienseのgbkファイルのダウンロード
 esearch -db nucleotide -query "NC_018150.2" | efetch -format gbwithparts > data/m_mas/genes.gbk
 ```
