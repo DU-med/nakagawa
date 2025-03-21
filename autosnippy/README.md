@@ -5,7 +5,7 @@
 
 ## 内容
 
-### 1. リポジトリのクローン
+### リポジトリのクローン
 ```
 git clone https://github.com/pedroscampoy/autosnippy.git
 ```
