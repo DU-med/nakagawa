@@ -40,6 +40,10 @@ mkdir -p data/fastq/m_abs data/fastq/m_mas
 mkdir -p output
 ```
 
+### fastqファイルの保存
+M. abscessusのfastqファイルはdata/fastq/m_absに  
+M. abscessus subsp. massilienseのfastqファイルはdata/fastq/m_masに
+
 ### 参照配列の取得及びgunzip
 CU458896.1 : [Mycobacterium abscessus ATCC 19977 chromosome, complete sequence](https://www.ncbi.nlm.nih.gov/nuccore/CU458896.1)  
 NC_018150.2 : [Mycobacteroides abscessus subsp. massiliense str. GO 06, complete sequence](https://www.ncbi.nlm.nih.gov/nuccore/NC_018150.2)
