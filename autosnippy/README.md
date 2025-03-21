@@ -34,7 +34,7 @@ mamba activate autosnippy
 
 ### 参照データ保存ディレクトリの作成
 ```
-mkdir ref
+mkdir -p data/ref
 mkdir -p data/m_abs
 mkdir -p data/m_mas
 ```
@@ -47,9 +47,9 @@ NC_018150.2
 
 ```
 # M. abscessのゲノムfastaファイルのダウンロード
-esearch -db nuccore -query "CU458896.1" | efetch -format fasta > ref/eU458896.1.fasta
+esearch -db nuccore -query "CU458896.1" | efetch -format fasta > data/ref/CU458896.1.fasta
 # M. massilienseのゲノム(NC_018150.2)fastaファイルのダウンロード
-esearch -db nuccore -query "NC_018150.2" | efetch -format fasta > ref/NC_018150.2.fasta
+esearch -db nuccore -query "NC_018150.2" | efetch -format fasta > data/ref/NC_018150.2.fasta
 ```
 ### gbkファイルの取得
 ```
@@ -60,7 +60,10 @@ esearch -db nucleotide -query "NC_018150.2" | efetch -format gbwithparts > data/
 ```
 
 ### refseq.genomes.k21s1000.mshの取得
+```
 wget https://gembox.cbcb.umd.edu/mash/refseq.genomes.k21s1000.msh -O data/refseq.genomes.k21s1000.msh
+```
+
 ### snpEffのdatabase build用のgenome.configファイルの作成
 ```
 echo "m_mas.genome : Mycobacteroides abscessus subsp. massiliense CCUG 48898 = JCM 15300" > snpEff.config
@@ -74,13 +77,13 @@ snpEff build -genbank -v m_mas
 
 ###  コマンド
 ```
-python autosnippy.py -i fastq -r ref/GCF_000069185.1_ASM6918v1_genomic.fna  -T 30 -o output --mash_database refseq.genomes.k21s1000.msh --snpeff_database m_mas
+python autosnippy.py -i data/fastq -r data/ref/CU458896.1.fasta  -T 30 -o output --mash_database data/refseq.genomes.k21s1000.msh --snpeff_database m_mas
 ```
-オプション
--i: fastqディレクトリにすべてのfastqファイルを保存
--r: 参照配列を保存
--T: スレッドを指定
--o: 結果を保存するディレクトリ
+オプション  
+-i: fastqディレクトリにすべてのfastqファイルを保存  
+-r: 参照配列を保存  
+-T: スレッドを指定  
+-o: 結果を保存するディレクトリ  
 --mash_database :wget https://gembox.cbcb.umd.edu/mash/refseq.genomes.k21s1000.mshで取
-得したファイルを指定
---snpeff_database :snpEffでビルドしたデータベースを指定
+得したファイルを指定  
+--snpeff_database :snpEffでビルドしたデータベースを指定  
