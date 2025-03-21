@@ -3,7 +3,7 @@
 GitHub : [autosnippy](https://github.com/pedroscampoy/autosnippy)  
 論文 : [Microevolution, reinfection and highly complex genomic diversity in patients with sequential isolates of Mycobacterium abscessus](https://www.nature.com/articles/s41467-024-46552-w)
 
-## 内容
+## 解析手順
 
 ### リポジトリのクローン
 ```
@@ -40,10 +40,8 @@ mkdir -p data/m_mas
 ```
 
 ### 参照配列の取得及びgunzip
-CU458896.1
-[Mycobacterium abscessus ATCC 19977 chromosome, complete sequence](https://www.ncbi.nlm.nih.gov/nuccore/CU458896.1)  
-NC_018150.2
-[Mycobacteroides abscessus subsp. massiliense str. GO 06, complete sequence](https://www.ncbi.nlm.nih.gov/nuccore/NC_018150.2)
+CU458896.1 : [Mycobacterium abscessus ATCC 19977 chromosome, complete sequence](https://www.ncbi.nlm.nih.gov/nuccore/CU458896.1)  
+NC_018150.2 : [Mycobacteroides abscessus subsp. massiliense str. GO 06, complete sequence](https://www.ncbi.nlm.nih.gov/nuccore/NC_018150.2)
 
 ```
 # M. abscessのゲノムfastaファイルのダウンロード
