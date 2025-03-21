@@ -52,7 +52,7 @@ NC_018150.2 : [Mycobacteroides abscessus subsp. massiliense str. GO 06, complete
 # M. abscessのゲノムfastaファイルのダウンロード
 esearch -db nuccore -query "CU458896.1" | efetch -format fasta > data/ref/CU458896.1.fasta
 
-# M. massilienseのゲノム(NC_018150.2)fastaファイルのダウンロード
+# M. abscessus subsp. massilienseのゲノム(NC_018150.2)fastaファイルのダウンロード
 esearch -db nuccore -query "NC_018150.2" | efetch -format fasta > data/ref/NC_018150.2.fasta
 ```
 ### gbkファイルの取得
@@ -60,7 +60,7 @@ esearch -db nuccore -query "NC_018150.2" | efetch -format fasta > data/ref/NC_01
 # M. abscessのgbkファイルのダウンロード
 esearch -db nucleotide -query "CU458896.1" | efetch -format gbwithparts > data/m_abs/genes.gbk
 
-# M. massilienseのgbkファイルのダウンロード
+# M. subsp. massilienseのgbkファイルのダウンロード
 esearch -db nucleotide -query "NC_018150.2" | efetch -format gbwithparts > data/m_mas/genes.gbk
 ```
 
@@ -71,8 +71,8 @@ wget https://gembox.cbcb.umd.edu/mash/refseq.genomes.k21s1000.msh -O data/refseq
 
 ### snpEffのdatabase build用のgenome.configファイルの作成
 ```
-echo "m_mas.genome : Mycobacteroides abscessus subsp. massiliense CCUG 48898 = JCM 15300" > snpEff.config
 echo "m_abs.genome : Mycobacterium abscessus ATCC 19977 chromosome, complete sequence" >> snpEff.config
+echo "m_mas.genome : Mycobacteroides abscessus subsp. massiliense CCUG 48898 = JCM 15300" > snpEff.config
 ```
 ### 参照配列からsnpEffのデータベースをビルド
 ```
@@ -82,7 +82,11 @@ snpEff build -genbank -v m_mas
 
 ###  コマンド
 ```
-python autosnippy.py -i data/fastq -r data/ref/CU458896.1.fasta  -T 30 -o output --mash_database data/refseq.genomes.k21s1000.msh --snpeff_database m_mas
+# M.abscessus 
+python autosnippy.py -i data/fastq/m_abs -r data/ref/CU458896.1.fasta  -T 30 -o output --mash_database data/refseq.genomes.k21s1000.msh --snpeff_database m_abs
+
+# M. abscessus subsp. massiliense
+python autosnippy.py -i data/fastq -r data/ref/NC_018150.2.fasta -T 30 -o output --mash_database data/refseq.genomes.k21s1000.msh --snpeff_database m_mas
 ```
 オプション  
 -i: fastqディレクトリにすべてのfastqファイルを保存  
