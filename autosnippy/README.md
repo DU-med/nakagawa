@@ -10,6 +10,11 @@
 git clone https://github.com/pedroscampoy/autosnippy.git
 ```
 
+### ディレクトリの移動
+```
+cd autosnippy
+```
+
 ### autosnippy.ymlファイルからperl-xml-parserを削除
 ```
 sed -i '/perl-xml-parser/d' autosnippy.yml
@@ -42,10 +47,9 @@ NC_018150.2
 
 ```
 # M. abscessのゲノムfastaファイルのダウンロード
-wget "https://www.ncbi.nlm.nih.gov/sviewer/viewer.fcgi?id=CU458896.1&db=nuccore&report=fasta&retmode=text" -O ref/CU458896.1.fasta
-
-# M. massilienseのゲノムfastaファイルのダウンロード
-wget "https://www.ncbi.nlm.nih.gov/search/api/sequence/NC_018150.2/?report=fasta&format=text" -O ref/NC_018150.2.fasta
+esearch -db nuccore -query "CU458896.1" | efetch -format fasta > ref/eU458896.1.fasta
+# M. massilienseのゲノム(NC_018150.2)fastaファイルのダウンロード
+esearch -db nuccore -query "NC_018150.2" | efetch -format fasta > ref/NC_018150.2.fasta
 ```
 ### gbkファイルの取得
 ```
@@ -55,10 +59,12 @@ esearch -db nucleotide -query "CU458896.1" | efetch -format gbwithparts > data/m
 esearch -db nucleotide -query "NC_018150.2" | efetch -format gbwithparts > data/m_mas/genes.gbk
 ```
 
+### refseq.genomes.k21s1000.mshの取得
+wget https://gembox.cbcb.umd.edu/mash/refseq.genomes.k21s1000.msh -O data/refseq.genomes.k21s1000.msh
 ### snpEffのdatabase build用のgenome.configファイルの作成
 ```
-echo "m_mas.genome : Mycobacteroides abscessus subsp. massiliense CCUG 48898 = JCM 15300" > genome.config
-echo "Mycobacterium abscessus ATCC 19977 chromosome, complete sequence" >> genome.config
+echo "m_mas.genome : Mycobacteroides abscessus subsp. massiliense CCUG 48898 = JCM 15300" > snpEff.config
+echo "m_abs.genome : Mycobacterium abscessus ATCC 19977 chromosome, complete sequence" >> snpEff.config
 ```
 ### 参照配列からsnpEffのデータベースをビルド
 ```
@@ -67,12 +73,14 @@ snpEff build -genbank -v m_mas
 ```
 
 ###  コマンド
+```
 python autosnippy.py -i fastq -r ref/GCF_000069185.1_ASM6918v1_genomic.fna  -T 30 -o output --mash_database refseq.genomes.k21s1000.msh --snpeff_database m_mas
-
-# オプション
+```
+オプション
 -i: fastqディレクトリにすべてのfastqファイルを保存
 -r: 参照配列を保存
 -T: スレッドを指定
 -o: 結果を保存するディレクトリ
---mash_database :wget https://gembox.cbcb.umd.edu/mash/refseq.genomes.k21s1000.mshで取得したファイルを指定
+--mash_database :wget https://gembox.cbcb.umd.edu/mash/refseq.genomes.k21s1000.mshで取
+得したファイルを指定
 --snpeff_database :snpEffでビルドしたデータベースを指定
