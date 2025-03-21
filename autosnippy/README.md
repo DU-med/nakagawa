@@ -37,6 +37,7 @@ mkdir -p data/ref
 mkdir -p data/m_abs
 mkdir -p data/m_mas
 mkdir -p data/fastq/m_abs data/fastq/m_mas
+mkdir -p output
 ```
 
 ### 参照配列の取得及びgunzip
