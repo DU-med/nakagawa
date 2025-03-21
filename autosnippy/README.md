@@ -25,15 +25,16 @@ mamba env create -f autosnippy.yml
 mamba activate autosnippy
 ```
 
+### 参照配列の取得及びgunzip
+[Mycobacterium abscessus ATCC 19977 chromosome, complete sequence](https://www.ncbi.nlm.nih.gov/nuccore/CU458896.1)
+[Mycobacteroides abscessus subsp. massiliense str. GO 06, complete sequence
+](https://www.ncbi.nlm.nih.gov/nuccore/NC_018150.2)
 
-
-
-
-# インストール
-autosnippy.ymlからperl-xml-paraserを削除
-
-# 参照配列
-参照配列はgunzipを行う
+```
+# M. abscessのゲノムfastaファイルのダウンロード
+wget "https://www.ncbi.nlm.nih.gov/sviewer/viewer.fcgi?id=CU458896.1&db=nuccore&report=fasta&retmode=text" -O CU458896.1.fasta
+# M. massilienseのゲノムfastaファイルのダウンロード
+```
 
 # snpEff
 参照配列からsnpEffのデータベースをビルド
