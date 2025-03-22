@@ -34,11 +34,11 @@ mamba install bioconda::entrez-direct -y
 
 ### 参照データ保存ディレクトリの作成
 ```
-mkdir -p data/ref
-mkdir -p data/m_abs
-mkdir -p data/m_mas
-mkdir -p data/fastq/m_abs data/fastq/m_mas
-mkdir -p output
+mkdir -p data/ref # 参照配列保存用
+mkdir -p data/m_abs # M. abscessusのgbkファイル保存
+mkdir -p data/m_mas # M. abscessus subsp. massilienseのgbkファイル保存
+mkdir -p data/fastq/m_abs data/fastq/m_mas # それぞれの種のサンプルfastqファイ保存
+mkdir -p output # 出力ファイルの保存
 ```
 
 ### fastqファイルの保存
