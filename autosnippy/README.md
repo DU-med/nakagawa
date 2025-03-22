@@ -16,6 +16,7 @@ cd autosnippy
 ```
 
 ### autosnippy.ymlファイルからperl-xml-parserを削除
+環境構築の際に下記を実行しないと構築に失敗する  
 ```
 sed -i '/perl-xml-parser/d' autosnippy.yml
 ```
