@@ -86,7 +86,7 @@ snpEff build -genbank -v m_mas
 python autosnippy.py -i data/fastq/m_abs -r data/ref/CU458896.1.fasta  -T 30 -o output --mash_database data/refseq.genomes.k21s1000.msh --snpeff_database m_abs
 
 # M. abscessus subsp. massiliense
-python autosnippy.py -i data/fastq -r data/ref/NC_018150.2.fasta -T 30 -o output --mash_database data/refseq.genomes.k21s1000.msh --snpeff_database m_mas
+python autosnippy.py -i data/fastq/m_mas -r data/ref/NC_018150.2.fasta -T 30 -o output --mash_database data/refseq.genomes.k21s1000.msh --snpeff_database m_mas
 ```
 オプション  
 -i: fastqディレクトリにすべてのfastqファイルを保存  
