@@ -93,6 +93,5 @@ python autosnippy.py -i data/fastq/m_mas -r data/ref/NC_018150.2.fasta -T 30 -o 
 -r: 参照配列を保存  
 -T: スレッドを指定  
 -o: 結果を保存するディレクトリ  
---mash_database :wget https://gembox.cbcb.umd.edu/mash/refseq.genomes.k21s1000.mshで取
-得したファイルを指定  
---snpeff_database :snpEffでビルドしたデータベースを指定  
+--mash_database: wget https://gembox.cbcb.umd.edu/mash/refseq.genomes.k21s1000.msh で取得したファイルを指定  
+--snpeff_database: snpEffでビルドしたデータベースを指定  
