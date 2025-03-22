@@ -4,4 +4,4 @@
 
 ### 1. autosnippy
 細菌などの原核生物のバリアントコールおよび比較のためのツール
-[autosnippy](autosnippy)
+[autosnippyチュートリアル](autosnippy)
